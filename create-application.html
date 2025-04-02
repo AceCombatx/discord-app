@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Application | Discord Application Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="dashboard-body">
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+    
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <span class="glow">App</span>Portal
+                </div>
+                <button class="mobile-toggle" id="sidebar-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <div class="user-profile">
+                <div class="avatar">
+                    <img id="user-avatar" src="/placeholder.svg?height=50&width=50" alt="User Avatar">
+                    <span class="status-indicator online"></span>
+                </div>
+                <div class="user-info">
+                    <h3 id="username">Username</h3>
+                    <p id="user-tag">#0000</p>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="applications.html"><i class="fas fa-clipboard-list"></i> My Applications</a>
+                    </li>
+                    <li class="active">
+                        <a href="create-application.html"><i class="fas fa-plus-circle"></i> Create New</a>
+                    </li>
+                    <li>
+                        <a href="submissions.html"><i class="fas fa-inbox"></i> Submissions</a>
+                    </li>
+                    <li>
+                        <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <button id="logout-btn" class="btn-logout">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </aside>
+
+        <main class="dashboard-main">
+            <header class="dashboard-header">
+                <h1>Create <span class="glow">New Application</span></h1>
+                <div class="header-actions">
+                    <button id="save-draft-btn" class="btn-secondary">
+                        <i class="fas fa-save"></i> Save Draft
+                    </button>
+                    <button id="preview-btn" class="btn-secondary">
+                        <i class="fas fa-eye"></i> Preview
+                    </button>
+                </div>
+            </header>
+
+            <div class="dashboard-content">
+                <div class="create-application-container">
+                    <div class="application-builder">
+                        <section class="builder-section">
+                            <h2>Basic Information</h2>
+                            <div class="form-group">
+                                <label for="app-title">Application Title</label>
+                                <input type="text" id="app-title" placeholder="e.g., Staff Application">
+                            </div>
+                            <div class="form-group">
+                                <label for="app-description">Description</label>
+                                <textarea id="app-description" placeholder="Describe what this application is for..."></textarea>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="app-category">Category</label>
+                                    <select id="app-category">
+                                        <option value="staff">Staff Application</option>
+                                        <option value="partnership">Partnership Request</option>
+                                        <option value="support">Support Ticket</option>
+                                        <option value="custom">Custom</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="app-visibility">Visibility</label>
+                                    <select id="app-visibility">
+                                        <option value="public">Public</option>
+                                        <option value="private">Private (Invite Only)</option>
+                                        <option value="server">Server Members Only</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="builder-section">
+                            <div class="section-header">
+                                <h2>Form Builder</h2>
+                                <button id="add-field-btn" class="btn-primary">
+                                    <i class="fas fa-plus"></i> Add Field
+                                </button>
+                            </div>
+                            <div class="form-fields-container" id="form-fields">
+                                <!-- Form fields will be added here -->
+                                <div class="form-field-item">
+                                    <div class="field-header">
+                                        <div class="field-type">
+                                            <i class="fas fa-font"></i> Text Field
+                                        </div>
+                                        <div class="field-actions">
+                                            <button class="btn-icon edit-field"><i class="fas fa-edit"></i></button>
+                                            <button class="btn-icon delete-field"><i class="fas fa-trash"></i></button>
+                                            <button class="btn-icon move-field"><i class="fas fa-grip-lines"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="field-preview">
+                                        <label>What is your name?</label>
+                                        <input type="text" placeholder="Enter your name" disabled>
+                                    </div>
+                                </div>
+                                <div class="form-field-item">
+                                    <div class="field-header">
+                                        <div class="field-type">
+                                            <i class="fas fa-paragraph"></i> Text Area
+                                        </div>
+                                        <div class="field-actions">
+                                            <button class="btn-icon edit-field"><i class="fas fa-edit"></i></button>
+                                            <button class="btn-icon delete-field"><i class="fas fa-trash"></i></button>
+                                            <button class="btn-icon move-field"><i class="fas fa-grip-lines"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="field-preview">
+                                        <label>Why do you want to join our team?</label>
+                                        <textarea placeholder="Enter your response" disabled></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="builder-section">
+                            <h2>Design Customization</h2>
+                            <div class="design-options">
+                                <div class="form-group">
+                                    <label>Theme</label>
+                                    <div class="theme-selector">
+                                        <div class="theme-option active" data-theme="dark">
+                                            <div class="theme-preview dark-theme"></div>
+                                            <span>Dark</span>
+                                        </div>
+                                        <div class="theme-option" data-theme="light">
+                                            <div class="theme-preview light-theme"></div>
+                                            <span>Light</span>
+                                        </div>
+                                        <div class="theme-option" data-theme="neon">
+                                            <div class="theme-preview neon-theme"></div>
+                                            <span>Neon</span>
+                                        </div>
+                                        <div class="theme-option" data-theme="custom">
+                                            <div class="theme-preview custom-theme"></div>
+                                            <span>Custom</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Accent Color</label>
+                                    <div class="color-picker">
+                                        <input type="color" id="accent-color" value="#7289DA">
+                                        <span id="color-hex">#7289DA</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Background Style</label>
+                                    <select id="bg-style">
+                                        <option value="stars">Stars</option>
+                                        <option value="gradient">Gradient</option>
+                                        <option value="solid">Solid Color</option>
+                                        <option value="custom">Custom Image</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="builder-section">
+                            <h2>Submission Settings</h2>
+                            <div class="form-group">
+                                <label for="webhook-url">Discord Webhook URL (Optional)</label>
+                                <input type="text" id="webhook-url" placeholder="https://discord.com/api/webhooks/...">
+                                <p class="help-text">Receive notifications when someone submits this application</p>
+                            </div>
+                            <div class="form-group">
+                                <label>Submission Handling</label>
+                                <div class="checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="store-submissions" checked>
+                                        <span class="checkbox-custom"></span>
+                                        Store submissions on AppPortal
+                                    </label>
+                                </div>
+                                <div class="checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="email-notifications">
+                                        <span class="checkbox-custom"></span>
+                                        Send email notifications
+                                    </label>
+                                </div>
+                            </div>
+                        </section>
+
+                        <div class="form-actions">
+                            <button id="cancel-btn" class="btn-secondary">Cancel</button>
+                            <button id="create-app-btn" class="btn-primary">Create Application</button>
+                        </div>
+                    </div>
+
+                    <div class="application-preview">
+                        <div class="preview-header">
+                            <h3>Live Preview</h3>
+                            <div class="preview-controls">
+                                <button class="btn-icon" id="preview-desktop"><i class="fas fa-desktop"></i></button>
+                                <button class="btn-icon" id="preview-tablet"><i class="fas fa-tablet-alt"></i></button>
+                                <button class="btn-icon" id="preview-mobile"><i class="fas fa-mobile-alt"></i></button>
+                            </div>
+                        </div>
+                        <div class="preview-container">
+                            <div class="preview-frame" id="application-preview">
+                                <div class="preview-app-header">
+                                    <h2 id="preview-title">Staff Application</h2>
+                                    <p id="preview-description">Join our team and help us grow our community!</p>
+                                </div>
+                                <div class="preview-app-body">
+                                    <div class="preview-form-field">
+                                        <label>What is your name?</label>
+                                        <input type="text" placeholder="Enter your name">
+                                    </div>
+                                    <div class="preview-form-field">
+                                        <label>Why do you want to join our team?</label>
+                                        <textarea placeholder="Enter your response"></textarea>
+                                    </div>
+                                </div>
+                                <div class="preview-app-footer">
+                                    <button class="btn-primary">Submit Application</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Field Type Modal -->
+    <div class="modal" id="field-type-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add Field</h2>
+                <button class="close-modal"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="field-type-grid">
+                    <div class="field-type-option" data-type="text">
+                        <div class="field-type-icon"><i class="fas fa-font"></i></div>
+                        <h3>Text Field</h3>
+                        <p>Short text responses</p>
+                    </div>
+                    <div class="field-type-option" data-type="textarea">
+                        <div class="field-type-icon"><i class="fas fa-paragraph"></i></div>
+                        <h3>Text Area</h3>
+                        <p>Longer text responses</p>
+                    </div>
+                    <div class="field-type-option" data-type="number">
+                        <div class="field-type-icon"><i class="fas fa-hashtag"></i></div>
+                        <h3>Number</h3>
+                        <p>Numerical input only</p>
+                    </div>
+                    <div class="field-type-option" data-type="select">
+                        <div class="field-type-icon"><i class="fas fa-list"></i></div>
+                        <h3>Dropdown</h3>
+                        <p>Select from options</p>
+                    </div>
+                    <div class="field-type-option" data-type="checkbox">
+                        <div class="field-type-icon"><i class="fas fa-check-square"></i></div>
+                        <h3>Checkboxes</h3>
+                        <p>Multiple selections</p>
+                    </div>
+                    <div class="field-type-option" data-type="radio">
+                        <div class="field-type-icon"><i class="fas fa-dot-circle"></i></div>
+                        <h3>Radio Buttons</h3>
+                        <p>Single selection</p>
+                    </div>
+                    <div class="field-type-option" data-type="date">
+                        <div class="field-type-icon"><i class="fas fa-calendar-alt"></i></div>
+                        <h3>Date</h3>
+                        <p>Date picker</p>
+                    </div>
+                    <div class="field-type-option" data-type="file">
+                        <div class="field-type-icon"><i class="fas fa-file-upload"></i></div>
+                        <h3>File Upload</h3>
+                        <p>Accept file submissions</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="data.js"></script>
+    <script src="create-application.js"></script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Discord Application Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="dashboard-body">
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+    
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <span class="glow">App</span>Portal
+                </div>
+                <button class="mobile-toggle" id="sidebar-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <div class="user-profile">
+                <div class="avatar">
+                    <img id="user-avatar" src="/placeholder.svg?height=50&width=50" alt="User Avatar">
+                    <span class="status-indicator online"></span>
+                </div>
+                <div class="user-info">
+                    <h3 id="username">Username</h3>
+                    <p id="user-tag">#0000</p>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active">
+                        <a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="applications.html"><i class="fas fa-clipboard-list"></i> My Applications</a>
+                    </li>
+                    <li>
+                        <a href="create-application.html"><i class="fas fa-plus-circle"></i> Create New</a>
+                    </li>
+                    <li>
+                        <a href="submissions.html"><i class="fas fa-inbox"></i> Submissions</a>
+                    </li>
+                    <li>
+                        <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <button id="logout-btn" class="btn-logout">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </aside>
+
+        <main class="dashboard-main">
+            <header class="dashboard-header">
+                <h1>Welcome back, <span id="welcome-name" class="glow">User</span></h1>
+                <div class="header-actions">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search applications...">
+                    </div>
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="dashboard-content">
+                <section class="stats-section">
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-clipboard-list"></i></div>
+                        <div class="stat-info">
+                            <h3>Total Applications</h3>
+                            <p id="total-apps">5</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-users"></i></div>
+                        <div class="stat-info">
+                            <h3>Total Submissions</h3>
+                            <p id="total-submissions">24</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-check-circle"></i></div>
+                        <div class="stat-info">
+                            <h3>Approved</h3>
+                            <p id="approved-count">12</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-times-circle"></i></div>
+                        <div class="stat-info">
+                            <h3>Rejected</h3>
+                            <p id="rejected-count">8</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="recent-applications">
+                    <div class="section-header">
+                        <h2>Recent Applications</h2>
+                        <a href="applications.html" class="view-all">View All</a>
+                    </div>
+                    <div class="application-list" id="recent-apps-list">
+                        <!-- Application items will be loaded dynamically -->
+                    </div>
+                </section>
+
+                <section class="recent-submissions">
+                    <div class="section-header">
+                        <h2>Recent Submissions</h2>
+                        <a href="submissions.html" class="view-all">View All</a>
+                    </div>
+                    <div class="submission-list" id="recent-submissions-list">
+                        <!-- Submission items will be loaded dynamically -->
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="data.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>
